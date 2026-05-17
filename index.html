@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 식단표 - YUMMY MEAL SCHOOL</title>
+  <!-- FontAwesome for Cute Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header Section -->
+    <header>
+      <div class="logo-area">
+        <!-- Cute Egg Face Mascot drawn in CSS -->
+        <div class="logo-character">
+          <div class="char-eyes"></div>
+          <div class="char-mouth"></div>
+          <div class="badge-forkspoon">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+        </div>
+        <div class="logo-text-group">
+          <h1>오늘의 <span>식단표</span></h1>
+          <span class="logo-sub">YUMMY MEAL SCHOOL</span>
+        </div>
+      </div>
+      
+      <!-- School Badge on the Right -->
+      <div class="school-badge">
+        <i class="fa-solid fa-school"></i>
+        <span id="school-name">급식 정보 서비스</span>
+      </div>
+    </header>
+
+    <!-- Date Navigation Controller -->
+    <div class="date-selector-container">
+      <div class="date-selector-wrapper">
+        <button id="prev-date-btn" class="nav-btn" title="이전 날짜">«</button>
+        
+        <div class="date-display-group">
+          <!-- Calendar Trigger (Overlaying Hidden Native Datepicker) -->
+          <div class="datepicker-icon-btn">
+            <input type="date" id="datepicker" title="날짜 직접 선택">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <span id="current-date" class="current-date-text">2026년 05월 18일 (월)</span>
+        </div>
+
+        <button id="next-date-btn" class="nav-btn" title="다음 날짜">»</button>
+      </div>
+      
+      <!-- Fly to Today Button -->
+      <button id="go-today-btn" class="go-today-btn">오늘 먹는 날로 슝!</button>
+    </div>
+
+    <!-- Main Meals Card Container -->
+    <main id="meals-grid" class="meals-grid">
+      <!-- Default Cute Skeleton Cards on Load -->
+      <div class="skeleton-card">
+        <div class="skeleton-shimmer"></div>
+        <div class="skeleton-header">
+          <div class="skeleton-title"></div>
+          <div class="skeleton-circle"></div>
+        </div>
+        <div class="skeleton-body">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Interactive Allergy Guide Section -->
+    <section class="allergy-guide-section">
+      <div id="allergy-guide-header" class="allergy-guide-header">
+        <h4><i class="fa-regular fa-heart"></i> 조심조심! 알레르기 유발 식품 안내</h4>
+        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+      </div>
+      <div id="allergy-guide-content" class="allergy-guide-content">
+        <div class="allergy-guide-item">
+          <span class="guide-num">1</span>
+          <span class="guide-name">난류</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">2</span>
+          <span class="guide-name">우유</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">3</span>
+          <span class="guide-name">메밀</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">4</span>
+          <span class="guide-name">땅콩</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">5</span>
+          <span class="guide-name">대두</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">6</span>
+          <span class="guide-name">밀</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">7</span>
+          <span class="guide-name">고등어</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">8</span>
+          <span class="guide-name">게</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">9</span>
+          <span class="guide-name">새우</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">10</span>
+          <span class="guide-name">돼지</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">11</span>
+          <span class="guide-name">복숭아</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">12</span>
+          <span class="guide-name">토마토</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">13</span>
+          <span class="guide-name">아황산</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">14</span>
+          <span class="guide-name">호두</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">15</span>
+          <span class="guide-name">닭고기</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">16</span>
+          <span class="guide-name">쇠고기</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">17</span>
+          <span class="guide-name">오징어</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">18</span>
+          <span class="guide-name">조개류</span>
+        </div>
+        <div class="allergy-guide-item">
+          <span class="guide-num">19</span>
+          <span class="guide-name">잣</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
