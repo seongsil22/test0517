@@ -1,0 +1,758 @@
+/* style.css - Playful Neobrutalism School Meal Board Style (Light Theme) */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+:root {
+  /* Colors */
+  --bg-color: #FFF8F8;
+  --dot-color: #FEDDDD;
+  --line-color: #2B2A27;
+  
+  --coral-pink: #E05A75;
+  --mint-teal: #2E8B83;
+  --mint-bg: #E6F7F5;
+  
+  --cream-yellow: #FFFBF0;
+  --cream-bg: #FFF9E6;
+  --pure-white: #FFFFFF;
+  --text-muted: #A69E96;
+  --text-dark: #2B2A27;
+  
+  /* Fonts */
+  --font-kr: 'Noto Sans KR', sans-serif;
+  --font-en: 'Outfit', sans-serif;
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-kr);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
+  background-size: 24px 24px;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-color);
+  border-radius: 5px;
+  border: 2px solid var(--bg-color);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Header Area */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px dashed #FDCECE;
+  margin-bottom: 0.5rem;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Cute Egg/Face Character drawn in CSS */
+.logo-character {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #FFD043;
+  border: 3px solid var(--line-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 0 var(--line-color);
+}
+
+.logo-character::before {
+  /* Left blush */
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  background: #E05A75;
+  border-radius: 50%;
+  left: 8px;
+  top: 26px;
+}
+
+.logo-character::after {
+  /* Right blush */
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  background: #E05A75;
+  border-radius: 50%;
+  right: 8px;
+  top: 26px;
+}
+
+.char-eyes {
+  display: flex;
+  justify-content: space-between;
+  width: 22px;
+  position: absolute;
+  top: 18px;
+}
+
+.char-eyes::before, .char-eyes::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--line-color);
+  border-radius: 50%;
+}
+
+.char-mouth {
+  width: 10px;
+  height: 6px;
+  border: 2px solid var(--line-color);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  bottom: 18px;
+}
+
+/* Fork & Spoon Badge next to Character */
+.badge-forkspoon {
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+  background: #FF8BA7;
+  color: #fff;
+  border: 2px solid var(--line-color);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+}
+
+/* Logo Text Group */
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text-group h1 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--line-color);
+  letter-spacing: -0.02em;
+}
+
+.logo-text-group h1 span {
+  color: var(--coral-pink);
+}
+
+.logo-sub {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: -2px;
+}
+
+/* School Name Badge */
+.school-badge {
+  background: var(--mint-bg);
+  border: 3px solid var(--line-color);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 3px 0 var(--line-color);
+  transition: all 0.2s ease;
+}
+
+.school-badge i {
+  color: var(--mint-teal);
+  font-size: 0.85rem;
+}
+
+.school-badge span {
+  color: var(--mint-teal);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+/* Date Selector Box */
+.date-selector-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.date-selector-wrapper {
+  background: var(--pure-white);
+  border: 3px solid var(--line-color);
+  border-radius: 22px;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0 4px 0 var(--line-color);
+  position: relative;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--coral-pink);
+  font-size: 1.6rem;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-btn:hover {
+  transform: scale(1.2);
+}
+
+.nav-btn:active {
+  transform: scale(0.9);
+}
+
+.date-display-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.datepicker-icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--coral-pink);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.datepicker-icon-btn input[type="date"] {
+  position: absolute;
+  opacity: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.current-date-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+/* Go to Today Button */
+.go-today-btn {
+  background: var(--pure-white);
+  border: 3px solid var(--line-color);
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  font-weight: 900;
+  padding: 0.45rem 1.25rem;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--line-color);
+  transform: rotate(-2deg);
+  transition: all 0.15s ease;
+}
+
+.go-today-btn:hover {
+  transform: rotate(-2deg) translateY(2px);
+  box-shadow: 0 1px 0 var(--line-color);
+}
+
+.go-today-btn:active {
+  transform: rotate(-2deg) translateY(3px);
+  box-shadow: 0 0 0 var(--line-color);
+}
+
+/* Meals Container */
+.meals-grid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Meal Card Styling */
+.meal-card {
+  background: var(--pure-white);
+  border: 3px solid var(--line-color);
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 6px 0 var(--line-color);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.meal-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Card Header */
+.meal-header {
+  background: #FFEBEF;
+  border-bottom: 3px solid var(--line-color);
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--coral-pink);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.meal-title-group i {
+  font-size: 1.1rem;
+}
+
+/* Calorie Badge inside Header */
+.meal-calorie {
+  font-family: var(--font-kr);
+  font-size: 0.85rem;
+  font-weight: 800;
+  background: var(--pure-white);
+  border: 2.5px solid var(--line-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  color: var(--text-dark);
+  box-shadow: 0 2px 0 var(--line-color);
+}
+
+/* Card Body */
+.meal-body {
+  padding: 1.25rem 1.25rem 0.5rem 1.25rem;
+}
+
+.dish-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+/* Dish Item Capsule Row */
+.dish-item {
+  background: var(--cream-yellow);
+  border-radius: 20px;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 48px;
+}
+
+.dish-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  word-break: keep-all;
+}
+
+/* Circle Allergy Badges */
+.allergy-badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.allergy-badge {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: var(--pure-white);
+  color: var(--coral-pink);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--line-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.allergy-badge:hover {
+  background: var(--coral-pink);
+  color: var(--pure-white);
+  transform: scale(1.15);
+}
+
+/* Custom Tooltip */
+.custom-tooltip {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background: var(--line-color);
+  color: var(--pure-white);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.15s ease;
+  z-index: 100;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.allergy-badge:hover .custom-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Card Footer (Dashed Divider + Active Nutrients text) */
+.meal-footer {
+  border-top: 3px dashed var(--line-color);
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nutrient-label {
+  color: var(--coral-pink);
+  font-size: 0.85rem;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.15rem;
+}
+
+.nutrient-text {
+  font-size: 0.8rem;
+  color: #555552;
+  font-weight: 500;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+/* Accordion Panel (Allergy Guide) */
+.allergy-guide-section {
+  background: var(--cream-bg);
+  border: 3px solid var(--line-color);
+  border-radius: 24px;
+  padding: 0.85rem 1.25rem;
+  box-shadow: 0 4px 0 var(--line-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.allergy-guide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.allergy-guide-header h4 {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.allergy-guide-header .toggle-icon {
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  transition: transform 0.2s ease;
+}
+
+.allergy-guide-header.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.allergy-guide-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  opacity: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.allergy-guide-content.active {
+  max-height: 350px;
+  opacity: 1;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 2px dashed rgba(43, 42, 39, 0.15);
+}
+
+.allergy-guide-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--pure-white);
+  padding: 0.35rem 0.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--line-color);
+}
+
+.guide-num {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: #FFF0F2;
+  color: var(--coral-pink);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--line-color);
+}
+
+.guide-name {
+  font-size: 0.75rem;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* Skeleton Loading Shimmer (Retro Themed) */
+.skeleton-card {
+  height: 320px;
+  background: var(--pure-white);
+  border: 3px solid var(--line-color);
+  border-radius: 32px;
+  box-shadow: 0 6px 0 var(--line-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(43, 42, 39, 0) 0%,
+    rgba(43, 42, 39, 0.02) 20%,
+    rgba(43, 42, 39, 0.04) 60%,
+    rgba(43, 42, 39, 0) 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skeleton-title {
+  width: 80px;
+  height: 24px;
+  background: #FFEBEF;
+  border: 2px solid var(--line-color);
+  border-radius: 12px;
+}
+
+.skeleton-circle {
+  width: 60px;
+  height: 24px;
+  border-radius: 12px;
+  background: #eee;
+  border: 2px solid var(--line-color);
+}
+
+.skeleton-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex-grow: 1;
+}
+
+.skeleton-line {
+  height: 48px;
+  background: var(--cream-yellow);
+  border: 2px solid #F6F3EC;
+  border-radius: 20px;
+  width: 100%;
+}
+
+/* Empty State / Weekend Card */
+.empty-state {
+  background: var(--pure-white);
+  border: 3px solid var(--line-color);
+  border-radius: 32px;
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 0 var(--line-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: popUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: var(--coral-pink);
+  filter: drop-shadow(0 2px 0 var(--line-color));
+}
+
+.empty-state h3 {
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+.empty-btn {
+  background: var(--cream-bg);
+  border: 3px solid var(--line-color);
+  color: var(--text-dark);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--line-color);
+  margin-top: 0.5rem;
+  transition: all 0.15s ease;
+}
+
+.empty-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--line-color);
+}
+
+/* Animations */
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  50% { transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes popUp {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  to { transform: translateX(100%); }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 540px) {
+  body {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .logo-character {
+    width: 44px;
+    height: 44px;
+  }
+  .logo-character::before, .logo-character::after { top: 20px; }
+  .char-eyes { top: 14px; width: 18px; }
+  .char-mouth { bottom: 12px; }
+  .badge-forkspoon { width: 18px; height: 18px; font-size: 0.55rem; right: -4px; bottom: -3px; }
+  
+  .logo-text-group h1 {
+    font-size: 1.25rem;
+  }
+  
+  .school-badge {
+    padding: 0.3rem 0.6rem;
+  }
+  .school-badge span {
+    font-size: 0.75rem;
+  }
+  
+  .current-date-text {
+    font-size: 1.05rem;
+  }
+  
+  .allergy-guide-content.active {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .allergy-guide-content.active {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
